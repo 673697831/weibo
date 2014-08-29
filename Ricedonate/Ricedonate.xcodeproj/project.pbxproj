@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2068390419B0AF9500D3900F /* KNPathTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2068390319B0AF9500D3900F /* KNPathTableViewController.m */; };
+		2068390619B0AF9F00D3900F /* KNTableOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 2068390519B0AF9F00D3900F /* KNTableOverlay.png */; };
+		2068390919B0B12200D3900F /* WeiboListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2068390819B0B12200D3900F /* WeiboListController.m */; };
+		208F039519AF13C20095E990 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039419AF13C20095E990 /* Foundation.framework */; };
+		208F039719AF13C20095E990 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039619AF13C20095E990 /* CoreGraphics.framework */; };
+		208F039919AF13C20095E990 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039819AF13C20095E990 /* UIKit.framework */; };
+		208F039F19AF13C20095E990 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 208F039D19AF13C20095E990 /* InfoPlist.strings */; };
+		208F03A119AF13C20095E990 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 208F03A019AF13C20095E990 /* main.m */; };
+		208F03A519AF13C20095E990 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 208F03A419AF13C20095E990 /* AppDelegate.m */; };
+		208F03A719AF13C20095E990 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 208F03A619AF13C20095E990 /* Images.xcassets */; };
+		208F03AE19AF13C20095E990 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F03AD19AF13C20095E990 /* XCTest.framework */; };
+		208F03AF19AF13C20095E990 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039419AF13C20095E990 /* Foundation.framework */; };
+		208F03B019AF13C20095E990 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039819AF13C20095E990 /* UIKit.framework */; };
+		208F03B819AF13C20095E990 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 208F03B619AF13C20095E990 /* InfoPlist.strings */; };
+		208F03BA19AF13C20095E990 /* RicedonateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 208F03B919AF13C20095E990 /* RicedonateTests.m */; };
+		208F03C819AF26B10095E990 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208F03C719AF26B10095E990 /* ViewController.m */; };
+		208F03CB19AF5F140095E990 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 208F03CA19AF5F140095E990 /* UserInfo.m */; };
+		20A3C9CD19B06C260021B90B /* WeiboTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A3C9CC19B06C260021B90B /* WeiboTableViewController.m */; };
+		A18465661C334794A68F9BA6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFB995953874978B719A6C5 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		208F03B119AF13C20095E990 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 208F038919AF13C10095E990 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 208F039019AF13C20095E990;
+			remoteInfo = Ricedonate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2068390219B0AF8700D3900F /* KNPathTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNPathTableViewController.h; sourceTree = "<group>"; };
+		2068390319B0AF9500D3900F /* KNPathTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNPathTableViewController.m; sourceTree = "<group>"; };
+		2068390519B0AF9F00D3900F /* KNTableOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KNTableOverlay.png; sourceTree = "<group>"; };
+		2068390719B0B12200D3900F /* WeiboListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboListController.h; sourceTree = "<group>"; };
+		2068390819B0B12200D3900F /* WeiboListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboListController.m; sourceTree = "<group>"; };
+		208F039119AF13C20095E990 /* Ricedonate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ricedonate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		208F039419AF13C20095E990 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		208F039619AF13C20095E990 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		208F039819AF13C20095E990 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		208F039C19AF13C20095E990 /* Ricedonate-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ricedonate-Info.plist"; sourceTree = "<group>"; };
+		208F039E19AF13C20095E990 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		208F03A019AF13C20095E990 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		208F03A219AF13C20095E990 /* Ricedonate-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ricedonate-Prefix.pch"; sourceTree = "<group>"; };
+		208F03A319AF13C20095E990 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		208F03A419AF13C20095E990 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		208F03A619AF13C20095E990 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		208F03AC19AF13C20095E990 /* RicedonateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RicedonateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		208F03AD19AF13C20095E990 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		208F03B519AF13C20095E990 /* RicedonateTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RicedonateTests-Info.plist"; sourceTree = "<group>"; };
+		208F03B719AF13C20095E990 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		208F03B919AF13C20095E990 /* RicedonateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RicedonateTests.m; sourceTree = "<group>"; };
+		208F03C619AF26B10095E990 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		208F03C719AF26B10095E990 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		208F03C919AF5F140095E990 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		208F03CA19AF5F140095E990 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		20A3C9CB19B06C260021B90B /* WeiboTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTableViewController.h; sourceTree = "<group>"; };
+		20A3C9CC19B06C260021B90B /* WeiboTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTableViewController.m; sourceTree = "<group>"; };
+		4BFB995953874978B719A6C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D23DE5CE7B1F48C2B763347C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		208F038E19AF13C20095E990 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				208F039719AF13C20095E990 /* CoreGraphics.framework in Frameworks */,
+				208F039919AF13C20095E990 /* UIKit.framework in Frameworks */,
+				208F039519AF13C20095E990 /* Foundation.framework in Frameworks */,
+				A18465661C334794A68F9BA6 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		208F03A919AF13C20095E990 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				208F03AE19AF13C20095E990 /* XCTest.framework in Frameworks */,
+				208F03B019AF13C20095E990 /* UIKit.framework in Frameworks */,
+				208F03AF19AF13C20095E990 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		208F038819AF13C10095E990 = {
+			isa = PBXGroup;
+			children = (
+				208F039A19AF13C20095E990 /* Ricedonate */,
+				208F03B319AF13C20095E990 /* RicedonateTests */,
+				208F039319AF13C20095E990 /* Frameworks */,
+				208F039219AF13C20095E990 /* Products */,
+				D23DE5CE7B1F48C2B763347C /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		208F039219AF13C20095E990 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				208F039119AF13C20095E990 /* Ricedonate.app */,
+				208F03AC19AF13C20095E990 /* RicedonateTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		208F039319AF13C20095E990 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				208F039419AF13C20095E990 /* Foundation.framework */,
+				208F039619AF13C20095E990 /* CoreGraphics.framework */,
+				208F039819AF13C20095E990 /* UIKit.framework */,
+				208F03AD19AF13C20095E990 /* XCTest.framework */,
+				4BFB995953874978B719A6C5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		208F039A19AF13C20095E990 /* Ricedonate */ = {
+			isa = PBXGroup;
+			children = (
+				2068390519B0AF9F00D3900F /* KNTableOverlay.png */,
+				2068390319B0AF9500D3900F /* KNPathTableViewController.m */,
+				2068390219B0AF8700D3900F /* KNPathTableViewController.h */,
+				208F03A319AF13C20095E990 /* AppDelegate.h */,
+				208F03A419AF13C20095E990 /* AppDelegate.m */,
+				208F03A619AF13C20095E990 /* Images.xcassets */,
+				208F039B19AF13C20095E990 /* Supporting Files */,
+				208F03C619AF26B10095E990 /* ViewController.h */,
+				208F03C719AF26B10095E990 /* ViewController.m */,
+				208F03C919AF5F140095E990 /* UserInfo.h */,
+				208F03CA19AF5F140095E990 /* UserInfo.m */,
+				20A3C9CB19B06C260021B90B /* WeiboTableViewController.h */,
+				20A3C9CC19B06C260021B90B /* WeiboTableViewController.m */,
+				2068390719B0B12200D3900F /* WeiboListController.h */,
+				2068390819B0B12200D3900F /* WeiboListController.m */,
+			);
+			path = Ricedonate;
+			sourceTree = "<group>";
+		};
+		208F039B19AF13C20095E990 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				208F039C19AF13C20095E990 /* Ricedonate-Info.plist */,
+				208F039D19AF13C20095E990 /* InfoPlist.strings */,
+				208F03A019AF13C20095E990 /* main.m */,
+				208F03A219AF13C20095E990 /* Ricedonate-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		208F03B319AF13C20095E990 /* RicedonateTests */ = {
+			isa = PBXGroup;
+			children = (
+				208F03B919AF13C20095E990 /* RicedonateTests.m */,
+				208F03B419AF13C20095E990 /* Supporting Files */,
+			);
+			path = RicedonateTests;
+			sourceTree = "<group>";
+		};
+		208F03B419AF13C20095E990 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				208F03B519AF13C20095E990 /* RicedonateTests-Info.plist */,
+				208F03B619AF13C20095E990 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		208F039019AF13C20095E990 /* Ricedonate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 208F03BD19AF13C20095E990 /* Build configuration list for PBXNativeTarget "Ricedonate" */;
+			buildPhases = (
+				12BF01E711104019979224A5 /* Check Pods Manifest.lock */,
+				208F038D19AF13C20095E990 /* Sources */,
+				208F038E19AF13C20095E990 /* Frameworks */,
+				208F038F19AF13C20095E990 /* Resources */,
+				B1048671A4254176B4CB438B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ricedonate;
+			productName = Ricedonate;
+			productReference = 208F039119AF13C20095E990 /* Ricedonate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		208F03AB19AF13C20095E990 /* RicedonateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 208F03C019AF13C20095E990 /* Build configuration list for PBXNativeTarget "RicedonateTests" */;
+			buildPhases = (
+				208F03A819AF13C20095E990 /* Sources */,
+				208F03A919AF13C20095E990 /* Frameworks */,
+				208F03AA19AF13C20095E990 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				208F03B219AF13C20095E990 /* PBXTargetDependency */,
+			);
+			name = RicedonateTests;
+			productName = RicedonateTests;
+			productReference = 208F03AC19AF13C20095E990 /* RicedonateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		208F038919AF13C10095E990 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "___FULLUSERNAME___";
+				TargetAttributes = {
+					208F03AB19AF13C20095E990 = {
+						TestTargetID = 208F039019AF13C20095E990;
+					};
+				};
+			};
+			buildConfigurationList = 208F038C19AF13C10095E990 /* Build configuration list for PBXProject "Ricedonate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 208F038819AF13C10095E990;
+			productRefGroup = 208F039219AF13C20095E990 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				208F039019AF13C20095E990 /* Ricedonate */,
+				208F03AB19AF13C20095E990 /* RicedonateTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		208F038F19AF13C20095E990 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				208F039F19AF13C20095E990 /* InfoPlist.strings in Resources */,
+				208F03A719AF13C20095E990 /* Images.xcassets in Resources */,
+				2068390619B0AF9F00D3900F /* KNTableOverlay.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		208F03AA19AF13C20095E990 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				208F03B819AF13C20095E990 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12BF01E711104019979224A5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B1048671A4254176B4CB438B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		208F038D19AF13C20095E990 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20A3C9CD19B06C260021B90B /* WeiboTableViewController.m in Sources */,
+				2068390419B0AF9500D3900F /* KNPathTableViewController.m in Sources */,
+				208F03CB19AF5F140095E990 /* UserInfo.m in Sources */,
+				208F03A519AF13C20095E990 /* AppDelegate.m in Sources */,
+				208F03C819AF26B10095E990 /* ViewController.m in Sources */,
+				208F03A119AF13C20095E990 /* main.m in Sources */,
+				2068390919B0B12200D3900F /* WeiboListController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		208F03A819AF13C20095E990 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				208F03BA19AF13C20095E990 /* RicedonateTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		208F03B219AF13C20095E990 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 208F039019AF13C20095E990 /* Ricedonate */;
+			targetProxy = 208F03B119AF13C20095E990 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		208F039D19AF13C20095E990 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				208F039E19AF13C20095E990 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		208F03B619AF13C20095E990 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				208F03B719AF13C20095E990 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		208F03BB19AF13C20095E990 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		208F03BC19AF13C20095E990 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		208F03BE19AF13C20095E990 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D23DE5CE7B1F48C2B763347C /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ricedonate/Ricedonate-Prefix.pch";
+				INFOPLIST_FILE = "Ricedonate/Ricedonate-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		208F03BF19AF13C20095E990 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D23DE5CE7B1F48C2B763347C /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ricedonate/Ricedonate-Prefix.pch";
+				INFOPLIST_FILE = "Ricedonate/Ricedonate-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		208F03C119AF13C20095E990 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Ricedonate.app/Ricedonate";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ricedonate/Ricedonate-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "RicedonateTests/RicedonateTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		208F03C219AF13C20095E990 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Ricedonate.app/Ricedonate";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ricedonate/Ricedonate-Prefix.pch";
+				INFOPLIST_FILE = "RicedonateTests/RicedonateTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		208F038C19AF13C10095E990 /* Build configuration list for PBXProject "Ricedonate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				208F03BB19AF13C20095E990 /* Debug */,
+				208F03BC19AF13C20095E990 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		208F03BD19AF13C20095E990 /* Build configuration list for PBXNativeTarget "Ricedonate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				208F03BE19AF13C20095E990 /* Debug */,
+				208F03BF19AF13C20095E990 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		208F03C019AF13C20095E990 /* Build configuration list for PBXNativeTarget "RicedonateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				208F03C119AF13C20095E990 /* Debug */,
+				208F03C219AF13C20095E990 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 208F038919AF13C10095E990 /* Project object */;
+}
