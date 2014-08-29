@@ -18,7 +18,7 @@
     IBOutlet UIButton *buttonSendWeibo;
     IBOutlet UIButton *buttonYanZheng;
     IBOutlet UIButton *buttonLoginOut;
-    WeiboListController *weiboListView;
+    WeiboTableViewController *weiboListView;
 }
 
 -(void)setUserToken:(NSString *)token;

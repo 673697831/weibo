@@ -77,7 +77,7 @@
     NSArray *weibos = [dic objectForKey:@"statuses"];
     [userInfo set_weibo_list:weibos];
     if (!weiboListView) {
-        weiboListView = [[WeiboListController alloc] initWithStyle:UITableViewStylePlain];
+        weiboListView = [[WeiboTableViewController alloc] initWithStyle:UITableViewStylePlain];
     }
     //[weiboListView setUserInfo:dic];
     [self.navigationController pushViewController:weiboListView animated:YES];

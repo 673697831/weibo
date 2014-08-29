@@ -18,14 +18,30 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        if (self) {
+            self.title = @"Basic demo";
+            self.tabBarItem.image = [UIImage imageNamed:@"first"];
+            
+            // Add a series of number
+            array = [[NSMutableArray alloc] init];
+            UserInfo *userInfo = [UserInfo getInstance];
+            NSMutableArray *weibos = [userInfo get_weibo_list];
+            
+            for (NSDictionary *dic in weibos) {
+                NSString *st = [dic objectForKey:@"text"];
+                NSLog(@"%@", st);
+                [array addObject:st];
+            }
+            //        for (int k=0;k<100;k++) {
+            //            [array addObject:[NSString stringWithFormat:@"Test row number %d", k]];
+            //        }
+        }
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
-    curIndex = 0;
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -54,8 +70,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    int count = [[userInfo get_weibo_list] count];
-    return count;
+    return [array count];
 }
 
 - (void)setUserInfo:(NSDictionary *)tmpInfo
@@ -73,18 +88,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (nil == cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        [cell.textLabel setTag:curIndex];
-        NSLog(@"yyyyyyy");
-        curIndex ++;
-    }
-    NSDictionary *dic = [userInfo get_weibo_list][[cell.textLabel tag]];
-    cell.textLabel.text = [dic objectForKey:@"text"];
-    // Configure the cell...
+    static NSString *CellIdentifier = @"Cell";
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    cell.textLabel.text = [array objectAtIndex:indexPath.row];
     return cell;
 }
 

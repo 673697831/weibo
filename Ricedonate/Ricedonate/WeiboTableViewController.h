@@ -11,7 +11,7 @@
 @interface WeiboTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 {
     UserInfo *userInfo;
-    int curIndex;
+    NSMutableArray * array;
 }
 
 -(void)setUserInfo:(NSDictionary *)tmpInfo;
