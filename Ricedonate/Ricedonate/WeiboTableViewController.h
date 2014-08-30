@@ -10,9 +10,9 @@
 #import "UserInfo.h"
 @interface WeiboTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 {
-    UserInfo *userInfo;
     NSMutableArray * array;
+    BOOL __isLoading;
 }
 
--(void)setUserInfo:(NSDictionary *)tmpInfo;
+- (void)Update;
 @end

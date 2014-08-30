@@ -17,14 +17,14 @@
         
         // Add a series of number
         array = [[NSMutableArray alloc] init];
-        UserInfo *userInfo = [UserInfo getInstance];
-        NSMutableArray *weibos = [userInfo get_weibo_list];
-        
-        for (NSDictionary *dic in weibos) {
-            NSString *st = [dic objectForKey:@"text"];
-            NSLog(@"%@", st);
-            [array addObject:st];
-        }
+        //UserInfo *userInfo = viewcon
+        //NSMutableArray *weibos = [userInfo get_weibo_list];
+//        weibos = [[NSArray alloc]init];
+//        for (NSDictionary *dic in weibos) {
+//            NSString *st = [dic objectForKey:@"text"];
+//            NSLog(@"%@", st);
+//            [array addObject:st];
+//        }
 //        for (int k=0;k<100;k++) {
 //            [array addObject:[NSString stringWithFormat:@"Test row number %d", k]];
 //        }

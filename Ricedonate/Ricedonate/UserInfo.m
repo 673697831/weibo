@@ -7,13 +7,36 @@
 //
 
 #import "UserInfo.h"
-
+@interface UserInfo ()
+-(void)findMaxIndex;
+@end
 @implementation UserInfo
+-(void)findMaxIndex
+{
+    for (NSDictionary *dic in weibo_list) {
+        NSString *tmp = [NSString stringWithFormat:@"%@", [dic objectForKey:@"id"]];
+        int64_t num;
+        if (   [[dic objectForKey:@"id"] isKindOfClass:[NSNumber class]]) {
+            num = [[dic objectForKey:@"id"] intValue];
+            NSLog(@"jjjjjjjjjj %lld",num);
+        }
+        BOOL result = [tmp compare: __lastWeibo] == NSOrderedAscending;
+        if (result || [__lastWeibo  isEqual: @"0"]) {
+            //NSLog(@"tmp = %@ _lastWeibo = %@", tmp, __lastWeibo);
+            __lastWeibo = [NSString stringWithString:tmp];
+            
+        }
+    }
+   // NSLog(@"%@", __lastWeibo);
+}
+//3749284425759886
+
 -(id)init
 {
     self = [super init];
-    [self reset];
-    instance = self;
+    __lastWeibo = [NSString stringWithFormat:@"0"];
+    status = -1;
+    total_number = 0;
     return self;
 }
 
@@ -29,11 +52,16 @@
 }
 -(void)reset
 {
-    status = -1;
+    //status = -1;
+    __lastWeibo = [NSString stringWithFormat:@"0"];
 }
 -(int)getStatus
 {
     return status;
+}
+-(NSString *)getLastWeibo
+{
+    return __lastWeibo;
 }
 
 -(void)set_weibo_list:(NSArray *) array
@@ -47,7 +75,28 @@
         [weibo_list removeAllObjects];
         //合并两个字典
         [weibo_list addObjectsFromArray:array];
-    }    
+    }
+    [self findMaxIndex];
+}
+
+-(void)addWeibo:(NSArray *)array
+{
+    if (!weibo_list) {
+        //weibo_list = [[NSMutableDictionary alloc] initWithDictionary:[dic objectForKey:@"statuses"]];
+        weibo_list = [[NSMutableArray alloc]initWithArray:array];
+    }
+    else
+    {
+        //[weibo_list addObjectsFromArray:array];
+        for (NSDictionary *dic in array) {
+            NSString *tmp = [NSString stringWithFormat:@"%@", [dic objectForKey:@"id"]];
+            
+            if (![tmp isEqual:__lastWeibo]) {
+                [weibo_list addObject:dic];
+            }
+        }
+    }
+    [self findMaxIndex];
 }
 
 -(NSMutableArray *)get_weibo_list
@@ -148,9 +197,13 @@
     return tempString;
 }
 
-+(UserInfo *)getInstance
+-(void)setTotalNumber:(int)number
 {
-    return instance;
+    total_number = number;
+}
+-(int)getTotalNumber
+{
+    return total_number;
 }
 @end
 
