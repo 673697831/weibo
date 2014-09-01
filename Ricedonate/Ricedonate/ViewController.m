@@ -10,6 +10,9 @@
 #import "AFNetworking.h"
 #define kAppKey         @"3770602938"
 #define kRedirectURI    @"http://www.sina.com"
+#define TIMELINEURI @"https://api.weibo.com/2/statuses/user_timeline.json"
+#define UPDATEURI @"https://api.weibo.com/2/statuses/update.json"
+#define UPLOADURI @"https://api.weibo.com/2/statuses/upload.json"
 #define BUTTON_GET 0   //获取
 #define BUTTON_SEND 1  //发送
 #define BUTTON_IDENT 2 //验证
@@ -19,10 +22,14 @@
 -(UIButton *)createButton:(CGRect)frame Title:(NSString *)titleName Tag:(int)tag;
 -(void)weiboYanZheng;
 -(void)requestWeibo;
+-(void)openSendWeibo;
+-(void)sendWeiboWithImage:(NSString *)text ImageInfo:(UIImage *)image;
+-(void)sendWeibowithoutImage:(NSString *)text;
 @end
 
 @implementation ViewController
 @synthesize userInfo = __userInfo;
+@synthesize sendWeiboView = __sendWeiboView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -72,7 +79,7 @@
     NSString *access_token = [self.userInfo accessToken];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM};
-    [manager GET:@"https://api.weibo.com/2/statuses/user_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
+    [manager GET:TIMELINEURI parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
         int total_number = [[responseObject objectForKey:@"total_number"] intValue];
         self.userInfo.totalNumber = total_number;
         NSArray *weibos = [responseObject objectForKey:@"statuses"];
@@ -88,6 +95,65 @@
         }];
 }
 
+-(void)openSendWeibo
+{
+    if (!self.sendWeiboView) {
+        self.sendWeiboView = [[SendWeiboView alloc] init];
+    }
+    [self.navigationController pushViewController:self.sendWeiboView animated:YES];
+}
+-(void)sendWeibo:(NSString *)text ImageInfo:(UIImage *)image
+{
+    //NSLog(@"cccccccccc%@ %@", data, text);
+    if ([self.userInfo status] < 0) {
+        NSLog(@"还没登陆微博");
+        return;
+    }
+    
+    if (!text || [text isEqual:@""]) {
+        NSLog(@"还没输入微博内容");
+        return;
+    }
+    
+    if (!image) {
+        [self sendWeibowithoutImage:text];
+    }
+    else
+    {
+        [self sendWeiboWithImage:text ImageInfo:image];
+    }
+    [self.sendWeiboView reset];
+//    NSString *text = @"ewighieowioghweihgowg";
+    
+}
+
+-(void)sendWeiboWithImage:(NSString *)text ImageInfo:(UIImage *)image
+{
+    NSString *access_token = [self.userInfo accessToken];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"access_token":access_token, @"status":text};
+    [manager POST:UPLOADURI parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        NSData *data=UIImageJPEGRepresentation(image, 1.0);
+        [formData appendPartWithFileData:data name:@"pic" fileName:@"status.jpg" mimeType:@"image/jpeg"];}
+          success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
+              NSLog(@"%@", responseObject);
+          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              NSLog(@"Error: %@", error);
+          }];
+}
+
+-(void)sendWeibowithoutImage:(NSString *)text
+{
+    NSString *access_token = [self.userInfo accessToken];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"access_token":access_token, @"status":text};
+    [manager POST:UPDATEURI parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
+       NSLog(@"%@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 -(void)refreshWeibo
 {
     if ([self.userInfo status] < 0) {
@@ -98,7 +164,7 @@
     NSString *access_token = [self.userInfo accessToken];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM};
-    [manager GET:@"https://api.weibo.com/2/statuses/user_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
+    [manager GET:TIMELINEURI parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
         NSArray *weibos = [responseObject objectForKey:@"statuses"];
         [self.userInfo reset];
         int total_number = [[responseObject objectForKey:@"total_number"] intValue];
@@ -122,8 +188,7 @@
     NSString *index = [NSString stringWithFormat:@"%lld", num];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM, @"max_id":index};
-    [manager GET:@"https://api.weibo.com/2/statuses/user_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
-        NSLog(@"%@", responseObject);
+    [manager GET:TIMELINEURI parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
         NSArray *weibos = [responseObject objectForKey:@"statuses"];
         int total_number = [[responseObject objectForKey:@"total_number"] intValue];
         self.userInfo.totalNumber = total_number;
@@ -145,6 +210,7 @@
     [buttonGetWeibo addTarget:self action:@selector(requestWeibo) forControlEvents:UIControlEventTouchUpInside];
     frame.origin.y = frame.origin.y + 50;
     buttonSendWeibo = [self createButton:frame Title:@"发送微博" Tag:BUTTON_SEND];
+    [buttonSendWeibo addTarget:self action:@selector(openSendWeibo) forControlEvents:UIControlEventTouchUpInside];
     frame.origin.y = frame.origin.y + 50;
     buttonYanZheng = [self createButton:frame Title:@"微博验证" Tag:BUTTON_IDENT];
     [buttonYanZheng addTarget:self action:@selector(weiboYanZheng) forControlEvents:UIControlEventTouchUpInside];

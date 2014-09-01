@@ -46,7 +46,7 @@
 {
     self = [super initWithStyle:style];
         if (self) {
-            self.title = @"Basic demo";
+            self.title = @"微博列表";
             self.tabBarItem.image = [UIImage imageNamed:@"first"];
             array = [[NSMutableArray alloc] init];
             [self refrushArray];

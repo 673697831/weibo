@@ -25,7 +25,7 @@
     UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController=nav;
     //self.window.backgroundColor = [UIColor orangeColor];
-    nav.navigationBar.hidden = YES;
+    //nav.navigationBar.hidden = YES;
     [nav setHidesBottomBarWhenPushed:YES];
     return YES;
 }

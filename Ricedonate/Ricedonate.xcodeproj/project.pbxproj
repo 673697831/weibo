@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2068390619B0AF9F00D3900F /* KNTableOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 2068390519B0AF9F00D3900F /* KNTableOverlay.png */; };
+		2085C84619B42A7300E9FA3B /* SendWeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2085C84519B42A7300E9FA3B /* SendWeiboView.m */; };
+		2085C84819B4611800E9FA3B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2085C84719B4611800E9FA3B /* MobileCoreServices.framework */; };
 		208F039519AF13C20095E990 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039419AF13C20095E990 /* Foundation.framework */; };
 		208F039719AF13C20095E990 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039619AF13C20095E990 /* CoreGraphics.framework */; };
 		208F039919AF13C20095E990 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039819AF13C20095E990 /* UIKit.framework */; };
@@ -37,7 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2068390519B0AF9F00D3900F /* KNTableOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KNTableOverlay.png; sourceTree = "<group>"; };
+		2085C84419B42A7300E9FA3B /* SendWeiboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendWeiboView.h; sourceTree = "<group>"; };
+		2085C84519B42A7300E9FA3B /* SendWeiboView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendWeiboView.m; sourceTree = "<group>"; };
+		2085C84719B4611800E9FA3B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		208F039119AF13C20095E990 /* Ricedonate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ricedonate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208F039419AF13C20095E990 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		208F039619AF13C20095E990 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2085C84819B4611800E9FA3B /* MobileCoreServices.framework in Frameworks */,
 				208F039719AF13C20095E990 /* CoreGraphics.framework in Frameworks */,
 				208F039919AF13C20095E990 /* UIKit.framework in Frameworks */,
 				208F039519AF13C20095E990 /* Foundation.framework in Frameworks */,
@@ -112,6 +116,7 @@
 		208F039319AF13C20095E990 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2085C84719B4611800E9FA3B /* MobileCoreServices.framework */,
 				208F039419AF13C20095E990 /* Foundation.framework */,
 				208F039619AF13C20095E990 /* CoreGraphics.framework */,
 				208F039819AF13C20095E990 /* UIKit.framework */,
@@ -124,7 +129,6 @@
 		208F039A19AF13C20095E990 /* Ricedonate */ = {
 			isa = PBXGroup;
 			children = (
-				2068390519B0AF9F00D3900F /* KNTableOverlay.png */,
 				208F03A319AF13C20095E990 /* AppDelegate.h */,
 				208F03A419AF13C20095E990 /* AppDelegate.m */,
 				208F03A619AF13C20095E990 /* Images.xcassets */,
@@ -135,6 +139,8 @@
 				208F03CA19AF5F140095E990 /* UserInfo.m */,
 				20A3C9CB19B06C260021B90B /* WeiboTableViewController.h */,
 				20A3C9CC19B06C260021B90B /* WeiboTableViewController.m */,
+				2085C84419B42A7300E9FA3B /* SendWeiboView.h */,
+				2085C84519B42A7300E9FA3B /* SendWeiboView.m */,
 			);
 			path = Ricedonate;
 			sourceTree = "<group>";
@@ -247,7 +253,6 @@
 			files = (
 				208F039F19AF13C20095E990 /* InfoPlist.strings in Resources */,
 				208F03A719AF13C20095E990 /* Images.xcassets in Resources */,
-				2068390619B0AF9F00D3900F /* KNTableOverlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +307,7 @@
 				20A3C9CD19B06C260021B90B /* WeiboTableViewController.m in Sources */,
 				208F03CB19AF5F140095E990 /* UserInfo.m in Sources */,
 				208F03A519AF13C20095E990 /* AppDelegate.m in Sources */,
+				2085C84619B42A7300E9FA3B /* SendWeiboView.m in Sources */,
 				208F03C819AF26B10095E990 /* ViewController.m in Sources */,
 				208F03A119AF13C20095E990 /* main.m in Sources */,
 			);

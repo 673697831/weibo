@@ -10,6 +10,7 @@
 #import "WeiboSDK.h"
 #import "UserInfo.h"
 #import "WeiboTableViewController.h"
+#import "SendWeiboView.h"
 @interface ViewController : UIViewController
 {
     UserInfo *__userInfo;
@@ -18,14 +19,17 @@
     IBOutlet UIButton *buttonYanZheng;
     IBOutlet UIButton *buttonLoginOut;
     WeiboTableViewController *weiboListView;
+    SendWeiboView *__sendWeiboView;
 }
 
 -(void)setUserToken:(NSString *)token;
 -(NSString *)getUserToken;
 -(void)refreshWeibo;
 -(void)addWeibo;
+-(void)sendWeibo:(NSString *)text ImageInfo:(UIImage *)image;
 +(ViewController *)getInstance;
 @property(nonatomic, strong) UserInfo *userInfo;
+@property(nonatomic, strong) SendWeiboView *sendWeiboView;
 @end
 
 static ViewController *viewControllerInstance;
