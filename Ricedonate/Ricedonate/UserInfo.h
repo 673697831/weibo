@@ -10,24 +10,20 @@
 
 @interface UserInfo : NSObject
 {
-    NSString *access_token;
-    //NSMutableDictionary *weibo_list;
-    NSMutableArray *weibo_list;
-    int status;//用户状态
-    NSString *__lastWeibo;
-    int total_number;
+    NSString *__access_token;
+    NSMutableArray *__weiboList;
+    int __status;//用户状态
+    int64_t __lastWeibo;
+    int __totalNumber;
 }
 
--(void)set_token:(NSString *) token;
--(NSString *)get_token;
--(void)set_weibo_list:(NSArray *) array;
--(NSMutableArray *)get_weibo_list;
 -(void)reset;
--(int)getStatus;
--(void)setTotalNumber:(int) number;
--(int)getTotalNumber;
--(NSString *)getLastWeibo;
 -(void)addWeibo:(NSArray *) array;
--(NSString *)returnStringLable:(NSString *)string Row:(int)Row;
-@property(nonatomic, strong) NSString *_access_token;
+-(void)resetWeibo:(NSArray *)array;
+@property(nonatomic, strong) NSString *accessToken;
+@property(nonatomic, strong) NSMutableArray *weiboList;
+@property(nonatomic, assign) int64_t lastWeibo;
+@property(nonatomic, assign) int totalNumber;
+@property(nonatomic, assign) int status;
+
 @end

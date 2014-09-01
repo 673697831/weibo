@@ -77,17 +77,10 @@
     NSLog(@"didReceiveWeiboResponse");
     if ([response isKindOfClass:WBAuthorizeResponse.class])
     {
-        //NSString *message = [NSString stringWithFormat:@"响应状态: %d\nresponse.userId: %@\nresponse.accessToken: %@\n响应UserInfo数据: %@\n原请求UserInfo数据: %@",(int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken], response.userInfo, response.requestUserInfo];
         NSString *access_token = [NSString stringWithFormat:@"%@", [(WBAuthorizeResponse *)response accessToken]];
         
         [viewController setUserToken:access_token];
-//        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//        NSDictionary *parameters = @{@"access_token":access_token};
-//        [manager GET:@"https://api.weibo.com/2/statuses/user_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            NSLog(@"JSON: %@", responseObject);
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            NSLog(@"Error: %@", error);
-//        }];
+        viewController.userInfo.status = 1;
     }
     
 }

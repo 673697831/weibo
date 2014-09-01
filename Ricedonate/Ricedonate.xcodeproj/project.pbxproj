@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2068390419B0AF9500D3900F /* KNPathTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2068390319B0AF9500D3900F /* KNPathTableViewController.m */; };
 		2068390619B0AF9F00D3900F /* KNTableOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 2068390519B0AF9F00D3900F /* KNTableOverlay.png */; };
-		2068390919B0B12200D3900F /* WeiboListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2068390819B0B12200D3900F /* WeiboListController.m */; };
 		208F039519AF13C20095E990 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039419AF13C20095E990 /* Foundation.framework */; };
 		208F039719AF13C20095E990 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039619AF13C20095E990 /* CoreGraphics.framework */; };
 		208F039919AF13C20095E990 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208F039819AF13C20095E990 /* UIKit.framework */; };
@@ -39,11 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2068390219B0AF8700D3900F /* KNPathTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNPathTableViewController.h; sourceTree = "<group>"; };
-		2068390319B0AF9500D3900F /* KNPathTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNPathTableViewController.m; sourceTree = "<group>"; };
 		2068390519B0AF9F00D3900F /* KNTableOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KNTableOverlay.png; sourceTree = "<group>"; };
-		2068390719B0B12200D3900F /* WeiboListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboListController.h; sourceTree = "<group>"; };
-		2068390819B0B12200D3900F /* WeiboListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboListController.m; sourceTree = "<group>"; };
 		208F039119AF13C20095E990 /* Ricedonate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ricedonate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208F039419AF13C20095E990 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		208F039619AF13C20095E990 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,8 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				2068390519B0AF9F00D3900F /* KNTableOverlay.png */,
-				2068390319B0AF9500D3900F /* KNPathTableViewController.m */,
-				2068390219B0AF8700D3900F /* KNPathTableViewController.h */,
 				208F03A319AF13C20095E990 /* AppDelegate.h */,
 				208F03A419AF13C20095E990 /* AppDelegate.m */,
 				208F03A619AF13C20095E990 /* Images.xcassets */,
@@ -143,8 +135,6 @@
 				208F03CA19AF5F140095E990 /* UserInfo.m */,
 				20A3C9CB19B06C260021B90B /* WeiboTableViewController.h */,
 				20A3C9CC19B06C260021B90B /* WeiboTableViewController.m */,
-				2068390719B0B12200D3900F /* WeiboListController.h */,
-				2068390819B0B12200D3900F /* WeiboListController.m */,
 			);
 			path = Ricedonate;
 			sourceTree = "<group>";
@@ -310,12 +300,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				20A3C9CD19B06C260021B90B /* WeiboTableViewController.m in Sources */,
-				2068390419B0AF9500D3900F /* KNPathTableViewController.m in Sources */,
 				208F03CB19AF5F140095E990 /* UserInfo.m in Sources */,
 				208F03A519AF13C20095E990 /* AppDelegate.m in Sources */,
 				208F03C819AF26B10095E990 /* ViewController.m in Sources */,
 				208F03A119AF13C20095E990 /* main.m in Sources */,
-				2068390919B0B12200D3900F /* WeiboListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

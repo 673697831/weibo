@@ -18,7 +18,7 @@
 {
     [array removeAllObjects];
     UserInfo *userInfo = [ViewController getInstance].userInfo;
-    NSMutableArray *weibos = [userInfo get_weibo_list];
+    NSMutableArray *weibos = [userInfo weiboList];
     for (NSDictionary *dic in weibos) {
         NSString *st = [dic objectForKey:@"text"];
         //NSLog(@"%@", st);
@@ -50,13 +50,7 @@
             self.tabBarItem.image = [UIImage imageNamed:@"first"];
             array = [[NSMutableArray alloc] init];
             [self refrushArray];
-            //[self testArray];
-            // Add a series of number
-           
-            //        for (int k=0;k<100;k++) {
-            //            [array addObject:[NSString stringWithFormat:@"Test row number %d", k]];
-            //        }
-            __isLoading = false;
+            __isLoading = NO;
         }
     return self;
 }
@@ -171,13 +165,13 @@
         // 取内容的高度：
         //    如果内容高度大于UITableView高度，就取TableView高度
         //    如果内容高度小于UITableView高度，就取内容的实际高度
-        if ([array count] >= [[ViewController getInstance].userInfo getTotalNumber]) {
+        if ([array count] >= [[ViewController getInstance].userInfo totalNumber]) {
             return;
         }
         
         float height = scrollView.contentSize.height > self.tableView.frame.size.height ? self.tableView.frame.size.height : scrollView.contentSize.height;
         
-        if ((height - scrollView.contentSize.height + scrollView.contentOffset.y) / height > 0.2) {
+        if ((height - scrollView.contentSize.height + scrollView.contentOffset.y) / height > 0.1) {
             // 调用上拉刷新方法
             [[ViewController getInstance] addWeibo];
             __isLoading = YES;

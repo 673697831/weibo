@@ -18,7 +18,6 @@
 @interface ViewController ()
 -(UIButton *)createButton:(CGRect)frame Title:(NSString *)titleName Tag:(int)tag;
 -(void)weiboYanZheng;
--(void)displayWeibo:(NSDictionary *)dic;
 -(void)requestWeibo;
 @end
 
@@ -66,28 +65,24 @@
 
 -(void)requestWeibo
 {
-    if ([self.userInfo getStatus] < 0) {
+    if ([self.userInfo status] < 0) {
         NSLog(@"还没登陆微博");
-//        if (!weiboListView) {
-//            weiboListView = [[WeiboTableViewController alloc] initWithStyle:UITableViewStylePlain];
-//        }
-//        //[weiboListView setUserInfo:dic];
-//        [self.navigationController pushViewController:weiboListView animated:YES];
         return;
     }
-    NSString *access_token = [self.userInfo get_token];
+    NSString *access_token = [self.userInfo accessToken];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM};
-    //NSDictionary *parameters = @{@"access_token":access_token};
-    //NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:access_token, @"access_token", count, @"count", nil];
     [manager GET:@"https://api.weibo.com/2/statuses/user_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
-        int total_number;
-        id tmp = [responseObject objectForKey:@"total_number"];
-        if ([tmp isKindOfClass:[NSNumber class]]) {
-            total_number = [tmp integerValue];
+        int total_number = [[responseObject objectForKey:@"total_number"] intValue];
+        self.userInfo.totalNumber = total_number;
+        NSArray *weibos = [responseObject objectForKey:@"statuses"];
+        [self.userInfo resetWeibo:weibos];
+        //self.userInfo.weiboList = weibos;
+        if (!weiboListView) {
+            weiboListView = [[WeiboTableViewController alloc] initWithStyle:UITableViewStylePlain];
         }
-        [self.userInfo setTotalNumber:total_number];
-        [self displayWeibo:responseObject];
+        //[weiboListView setUserInfo:dic];
+        [self.navigationController pushViewController:weiboListView animated:YES];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
@@ -95,21 +90,21 @@
 
 -(void)refreshWeibo
 {
-    if ([self.userInfo getStatus] < 0) {
+    if ([self.userInfo status] < 0) {
         NSLog(@"还没登陆微博");
         return;
     }
     //NSString *index =@"3522703174183305";
-    NSString *access_token = [self.userInfo get_token];
-    //NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM, @"max_id":index};
+    NSString *access_token = [self.userInfo accessToken];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM};
-    //NSString *index = [self.userInfo getLastWeibo];
-    //NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM, @"max_id":index};
-    //NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM, @"since_id":[NSString stringWithFormat:@"%lld", index]};
     [manager GET:@"https://api.weibo.com/2/statuses/user_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
         NSArray *weibos = [responseObject objectForKey:@"statuses"];
-        [self.userInfo set_weibo_list:weibos];
+        [self.userInfo reset];
+        int total_number = [[responseObject objectForKey:@"total_number"] intValue];
+        self.userInfo.totalNumber = total_number;
+        //self.userInfo.weiboList = weibos;
+        [self.userInfo resetWeibo:weibos];
         [weiboListView Update];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -118,35 +113,26 @@
 
 -(void)addWeibo
 {
-    if ([self.userInfo getStatus] < 0) {
+    if ([self.userInfo status] < 0) {
         NSLog(@"还没登陆微博");
         return;
     }
-    NSString *access_token = [self.userInfo get_token];
-    NSString *index = [self.userInfo getLastWeibo];
-    //int64_t number = [index intValue] + 1;
-    //index = [NSString stringWithFormat:@"%lld", number];
+    NSString *access_token = [self.userInfo accessToken];
+    int64_t num = [self.userInfo lastWeibo];
+    NSString *index = [NSString stringWithFormat:@"%lld", num];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM, @"max_id":index};
     [manager GET:@"https://api.weibo.com/2/statuses/user_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
+        NSLog(@"%@", responseObject);
         NSArray *weibos = [responseObject objectForKey:@"statuses"];
+        int total_number = [[responseObject objectForKey:@"total_number"] intValue];
+        self.userInfo.totalNumber = total_number;
         [self.userInfo addWeibo:weibos];
         [weiboListView Update];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
-}
-
--(void)displayWeibo:(NSDictionary *)dic
-{
-    NSArray *weibos = [dic objectForKey:@"statuses"];
-    [self.userInfo set_weibo_list:weibos];
-    if (!weiboListView) {
-        weiboListView = [[WeiboTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    }
-    //[weiboListView setUserInfo:dic];
-    [self.navigationController pushViewController:weiboListView animated:YES];
 }
 
 - (void)viewDidLoad
@@ -181,12 +167,12 @@
 
 - (void)setUserToken:(NSString *)token
 {
-    [self.userInfo set_token:token];
+    self.userInfo.accessToken = token;
 }
 
 - (NSString *)getUserToken
 {
-    return [self.userInfo get_token];
+    return [self.userInfo accessToken];
 }
 + (ViewController *)getInstance
 {
