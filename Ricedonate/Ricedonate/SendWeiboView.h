@@ -15,10 +15,12 @@
     UIButton *photoButton;
     UIImagePickerController* __picker;
     UIImage *__image;
+    UIImageView *__imageView;
 }
 
 -(void)reset;
 @property(nonatomic, strong) UIImagePickerController *picker;
+@property(nonatomic, strong) UIImageView *imageView;
 @property(nonatomic, strong) UITextView *input;
 @property(nonatomic, strong) UIImage *image;
 @end

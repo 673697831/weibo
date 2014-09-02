@@ -19,6 +19,7 @@
 @synthesize picker = __picker;
 @synthesize image = __image;
 @synthesize input = __input;
+@synthesize imageView = __imageView;
 - (BOOL) isCameraAvailable{
     return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 }
@@ -81,6 +82,7 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     self.image = [info objectForKey:UIImagePickerControllerEditedImage];
+    [self.imageView setImage:self.image];
     NSLog(@"didFinishPickingMediaWithInfo");
     [picker dismissViewControllerAnimated:YES completion:^{}];
 }
@@ -95,6 +97,7 @@
 -(void)reset
 {
     [self.input setText:@""];
+    [self.imageView setImage:nil];
     self.image = nil;
 }
 -(void)getPhoto
@@ -155,14 +158,11 @@
      tapRecognizer.cancelsTouchesInView = NO;
      [self.view addGestureRecognizer:tapRecognizer];
     self.picker = [[UIImagePickerController alloc]init];//创建
-    
-//    NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:self.input
-//                                                                  attribute:NSLayoutAttributeTop
-//                                                                  relatedBy:NSLayoutRelationEqual
-//                                                                     toItem:navBar
-//                                                                  attribute:NSLayoutAttributeBottom
-//                                                                 multiplier:1.0
-//                                                                   constant:10];
+    self.imageView = [[UIImageView alloc] init];
+    self.imageView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.imageView.layer.borderWidth =1.0;
+    self.imageView.layer.cornerRadius =5.0;
+    [self.view addSubview:self.imageView];
     
     [self.input setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.input attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:70]];
@@ -188,9 +188,30 @@
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:photoButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-50]];
     
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:photoButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.input attribute:NSLayoutAttributeBottom multiplier:1.0 constant:20]];
+    
+    [self.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.input attribute:NSLayoutAttributeBottom multiplier:1.0 constant:70]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:10]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-10]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-10]];
+    
+    self.imageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *singleTap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickImage)];
+    
+    //把手势对象，添加给视图对象
+    
+    [self.imageView addGestureRecognizer:singleTap];
     // Do any additional setup after loading the view.
 }
 
+-(void)onClickImage
+{
+    [self.imageView setImage:nil];
+    self.image = nil;
+}
 
 - (void)handleBackgroundTap:(UITapGestureRecognizer*)sender
 {
