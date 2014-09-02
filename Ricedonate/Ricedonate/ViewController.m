@@ -109,8 +109,8 @@
             weiboListView = [[WeiboTableViewController alloc] initWithStyle:UITableViewStylePlain];
         }
         //[weiboListView setUserInfo:dic];
-        //[self.navigationController pushViewController:weiboListView animated:YES];
-        [self presentViewController:weiboListView animated:YES completion:nil];
+        [self.navigationController pushViewController:weiboListView animated:YES];
+        //[self presentViewController:weiboListView animated:YES completion:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
