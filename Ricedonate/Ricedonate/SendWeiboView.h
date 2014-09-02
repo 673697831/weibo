@@ -10,9 +10,9 @@
 
 @interface SendWeiboView : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
-    IBOutlet UITextView *__input;
-    IBOutlet UIButton *sendButton;
-    IBOutlet UIButton *photoButton;
+    UITextView *__input;
+    UIButton *sendButton;
+    UIButton *photoButton;
     UIImagePickerController* __picker;
     UIImage *__image;
 }

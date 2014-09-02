@@ -125,12 +125,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"发送微博";
-    self.input = [[UITextView alloc] initWithFrame:CGRectMake(10,88, 300, 31)];
-    [self.input setText:@""];
+    
+    self.input = [[UITextView alloc] init];
     self.input.layer.borderColor = [UIColor grayColor].CGColor;
     self.input.layer.borderWidth =1.0;
     self.input.layer.cornerRadius =5.0;
+    [self.input setText:@""];
+    [self.view addSubview:self.input];
+    self.title = @"发送微博";
+    //self.input = [[UITextView alloc] initWithFrame:CGRectMake(10,88, 300, 31)];
     sendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     sendButton.frame = CGRectMake(50, 188, 50, 30);
     [sendButton setTitle:@"发送" forState:UIControlStateNormal];
@@ -142,7 +145,7 @@
     [photoButton addTarget:self action:@selector(getPhoto) forControlEvents:UIControlEventTouchUpInside];
     [photoButton setTitle:@"拍照" forState:UIControlStateNormal];
     //input.backgroundColor = [UIColor darkTextColor];
-    [self.view addSubview:self.input];
+    //[self.view addSubview:self.input];
     [self.view addSubview:sendButton];
     [self.view addSubview:photoButton];
     //点击背景时候关闭键盘
@@ -151,6 +154,39 @@
      tapRecognizer.cancelsTouchesInView = NO;
      [self.view addGestureRecognizer:tapRecognizer];
     self.picker = [[UIImagePickerController alloc]init];//创建
+    
+//    NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:self.input
+//                                                                  attribute:NSLayoutAttributeTop
+//                                                                  relatedBy:NSLayoutRelationEqual
+//                                                                     toItem:navBar
+//                                                                  attribute:NSLayoutAttributeBottom
+//                                                                 multiplier:1.0
+//                                                                   constant:10];
+    
+    [self.input setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.input attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:70]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.input attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:10]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.input attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-10]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.input
+                                                          attribute:NSLayoutAttributeHeight
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:nil
+                                                          attribute:NSLayoutAttributeNotAnAttribute
+                                                         multiplier:1.0
+                                                           constant:100]];
+    
+    [sendButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:sendButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.input attribute:NSLayoutAttributeBottom multiplier:1.0 constant:20]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:sendButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:50]];
+    
+    [photoButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:photoButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-50]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:photoButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.input attribute:NSLayoutAttributeBottom multiplier:1.0 constant:20]];
     // Do any additional setup after loading the view.
 }
 

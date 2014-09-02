@@ -18,8 +18,9 @@
 #define BUTTON_IDENT 2 //验证
 #define BUTTON_LOGINOUT 3 //登出
 #define REQUEST_NUM 20
+#define BUTTONWIDTH 38
 @interface ViewController ()
--(UIButton *)createButton:(CGRect)frame Title:(NSString *)titleName Tag:(int)tag;
+-(UIButton *)createButton:(CGRect)frame Title:(NSString *)titleName Tag:(int)tag Count:(int)count;
 -(void)weiboYanZheng;
 -(void)requestWeibo;
 -(void)openSendWeibo;
@@ -48,13 +49,32 @@
 }
 
 //构造按钮
--(UIButton *)createButton:(CGRect)frame Title:(NSString *)titleName Tag:(int)tag
+-(UIButton *)createButton:(CGRect)frame Title:(NSString *)titleName Tag:(int)tag Count:(int)count
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.frame = frame;
     [button setTitle:titleName forState:UIControlStateNormal];
     [button setTag:tag];
     button.backgroundColor = [UIColor orangeColor];
+    
+    [self.view addSubview:button];
+    
+    [button setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:100 + count *(10 + BUTTONWIDTH)]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
+    
+//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:10]];
+//    
+//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-10]];
+//    
+//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:button
+//                                                          attribute:NSLayoutAttributeHeight
+//                                                          relatedBy:NSLayoutRelationEqual
+//                                                             toItem:nil
+//                                                          attribute:NSLayoutAttributeNotAnAttribute
+//                                                         multiplier:1.0
+//                                                           constant:100]];
     return button;
 }
 
@@ -89,7 +109,8 @@
             weiboListView = [[WeiboTableViewController alloc] initWithStyle:UITableViewStylePlain];
         }
         //[weiboListView setUserInfo:dic];
-        [self.navigationController pushViewController:weiboListView animated:YES];
+        //[self.navigationController pushViewController:weiboListView animated:YES];
+        [self presentViewController:weiboListView animated:YES completion:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
@@ -205,21 +226,25 @@
     self.userInfo = [[UserInfo alloc] init];
     int width = 68;
     int height = 38;
+    int count = 0;
     CGRect frame = CGRectMake(120, 120, width, height);
-    buttonGetWeibo = [self createButton:frame Title:@"获取微博" Tag:BUTTON_GET];
+    buttonGetWeibo = [self createButton:frame Title:@"获取微博" Tag:BUTTON_GET Count:count];
+    count ++;
     [buttonGetWeibo addTarget:self action:@selector(requestWeibo) forControlEvents:UIControlEventTouchUpInside];
     frame.origin.y = frame.origin.y + 50;
-    buttonSendWeibo = [self createButton:frame Title:@"发送微博" Tag:BUTTON_SEND];
+    buttonSendWeibo = [self createButton:frame Title:@"发送微博" Tag:BUTTON_SEND Count:count];
+    count ++;
     [buttonSendWeibo addTarget:self action:@selector(openSendWeibo) forControlEvents:UIControlEventTouchUpInside];
     frame.origin.y = frame.origin.y + 50;
-    buttonYanZheng = [self createButton:frame Title:@"微博验证" Tag:BUTTON_IDENT];
+    buttonYanZheng = [self createButton:frame Title:@"微博验证" Tag:BUTTON_IDENT Count:count];
+    count ++;
     [buttonYanZheng addTarget:self action:@selector(weiboYanZheng) forControlEvents:UIControlEventTouchUpInside];
     frame.origin.y = frame.origin.y + 50;
-    buttonLoginOut = [self createButton:frame Title:@"账号登出" Tag:BUTTON_LOGINOUT];
-    [self.view addSubview:buttonSendWeibo];
-    [self.view addSubview:buttonGetWeibo];
-    [self.view addSubview:buttonYanZheng];
-    [self.view addSubview:buttonLoginOut];
+    buttonLoginOut = [self createButton:frame Title:@"账号登出" Tag:BUTTON_LOGINOUT Count:count];
+//    [self.view addSubview:buttonSendWeibo];
+//    [self.view addSubview:buttonGetWeibo];
+//    [self.view addSubview:buttonYanZheng];
+//    [self.view addSubview:buttonLoginOut];
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.

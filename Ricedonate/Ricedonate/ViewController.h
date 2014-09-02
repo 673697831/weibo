@@ -14,10 +14,10 @@
 @interface ViewController : UIViewController
 {
     UserInfo *__userInfo;
-    IBOutlet UIButton *buttonGetWeibo;
-    IBOutlet UIButton *buttonSendWeibo;
-    IBOutlet UIButton *buttonYanZheng;
-    IBOutlet UIButton *buttonLoginOut;
+    UIButton *buttonGetWeibo;
+    UIButton *buttonSendWeibo;
+    UIButton *buttonYanZheng;
+    UIButton *buttonLoginOut;
     WeiboTableViewController *weiboListView;
     SendWeiboView *__sendWeiboView;
 }
