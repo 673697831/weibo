@@ -205,10 +205,11 @@
         return;
     }
     NSString *access_token = [self.userInfo accessToken];
-    int64_t num = [self.userInfo lastWeibo];
-    NSString *index = [NSString stringWithFormat:@"%lld", num];
+    //int64_t num = [self.userInfo lastWeibo] + 1;
+    NSNumber *num = [NSNumber numberWithLongLong:[self.userInfo lastWeibo] + 1];
+   // NSString *index = [NSString stringWithFormat:@"%lld", num];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM, @"max_id":index};
+    NSDictionary *parameters = @{@"access_token":access_token, @"count":@REQUEST_NUM, @"max_id":num};
     [manager GET:TIMELINEURI parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject) {
         NSArray *weibos = [responseObject objectForKey:@"statuses"];
         int total_number = [[responseObject objectForKey:@"total_number"] intValue];
